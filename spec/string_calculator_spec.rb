@@ -15,5 +15,13 @@ RSpec.describe StringCalculator do
     it 'returns sum of numbers when two numbers passed with comma separated values' do
       expect(StringCalculator.add("1,5")).to eq(6)
     end
+
+    it 'should handle any amount of numbers' do
+      expect(StringCalculator.add("1,2,3,4,5")).to eq(15)
+    end
+
+    it 'should handle \n in between the numbers' do
+      expect(StringCalculator.add("1\n2,3")).to eq(6)
+    end
   end
 end
