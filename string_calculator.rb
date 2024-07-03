@@ -3,8 +3,12 @@ class StringCalculator
 
     def add numbers
       return 0 if numbers.empty?
-
-      numbers.split(/[,\n]/).sum(&:to_i)
+      
+      if numbers.start_with?('//')
+        numbers = numbers.split(/\n/)[1]
+      end
+      
+      numbers.split(/[,;\n]/).sum(&:to_i)
     end
 
   end
