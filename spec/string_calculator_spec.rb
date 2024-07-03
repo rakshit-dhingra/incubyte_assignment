@@ -27,5 +27,9 @@ RSpec.describe StringCalculator do
     it 'should support different delimiters between the numbers' do
       expect(StringCalculator.add("//;\n1;2")).to eq(3)
     end
+
+    it 'should raise exceptions at negative numbers' do
+      expect{StringCalculator.add("1,2,-3")}.to raise_error("Negative numbers not allowed: -3")
+    end
   end
 end
